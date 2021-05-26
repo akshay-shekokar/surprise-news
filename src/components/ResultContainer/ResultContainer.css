@@ -1,0 +1,43 @@
+.result-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+.baby-image-container {
+    margin: 70px auto;
+    background-image: url('../../public/images/smiling-baby.jpeg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 40px;
+    max-height: 265px;
+}
+
+.greetings-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+    max-width: 700px;
+    padding: 0 30px;
+}
+
+.congrats-container {
+    background-image: url('../../public/images/congrats.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 300px;
+    height: 300px;
+}
+
+.greetings-message {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff ;
+    width: calc(100% - 350px);
+    min-width: 300px;
+    height: 300px;
+}

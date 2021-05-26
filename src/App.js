@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import BoxContainer from "./components/BoxContainer/BoxContainer";
+import "./App.css";
+import { useState } from "react";
+import ResultContainer from "./components/ResultContainer/ResultContainer";
 
 function App() {
+  const [isResultDisplayed, setIsResultDisplayed] = useState(false);
+  const showResult = () => {
+    setTimeout(() => {
+      setIsResultDisplayed(true);
+    }, 2000);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="body-container">
+        {isResultDisplayed ? (
+          <ResultContainer />
+        ) : (
+          <BoxContainer onFinalClick={showResult} />
+        )}
+      </div>
+    </>
   );
 }
 

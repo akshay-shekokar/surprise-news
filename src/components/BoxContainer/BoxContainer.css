@@ -1,0 +1,8 @@
+.box-container {
+    width: 470px;
+    height: 470px;
+    margin: auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    color: #fff;
+}
