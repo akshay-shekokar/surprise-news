@@ -5,6 +5,7 @@ import ResultContainer from "./components/ResultContainer/ResultContainer";
 
 function App() {
   const [isResultDisplayed, setIsResultDisplayed] = useState(false);
+
   const showResult = () => {
     setTimeout(() => {
       setIsResultDisplayed(true);

@@ -1,66 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "../Box/Box";
 import "./BoxContainer.css";
+import { tileColor } from "../../utils/constants";
+import Message from "../Message/Message";
+import getUniqueNumbers from "../../utils/uniqueNumbers";
+
+const sequence = getUniqueNumbers();
 
 const BoxContainer = ({ onFinalClick }) => {
-  const boxList = [
-    {
-      text: 1,
-      color: "#dc5450",
-      prevItem: null,
-    },
-    {
-      text: 2,
-      color: "#bbe17a",
-      prevItem: 8,
-    },
-    {
-      text: 3,
-      color: "#8397e1",
-      prevItem: 7,
-    },
-    {
-      text: 4,
-      color: "#9b78aa",
-      prevItem: 6,
-    },
-    {
-      text: 5,
-      color: "#d5972e",
-      prevItem: 2,
-    },
-    {
-      text: 6,
-      color: "#d576d3",
-      prevItem: 9,
-    },
-    {
-      text: 7,
-      color: "#71abda",
-      prevItem: 4,
-    },
-    {
-      text: 8,
-      color: "#eae428",
-      prevItem: 3,
-    },
-    {
-      text: 9,
-      color: "#afb9c9",
-      prevItem: 1,
-    },
-  ];
+  const [showMessage, setShowMessage] = useState(true);
+  const [message, setMessage] = useState('');
+  const [index, setIndex] = useState(0);
+  const numberSequence = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const onClick = (text) => {
+    if(index !== 8) {
+      onFinalClick();
+    } else {
+      let num = index;
+      if(text === sequence[num]) {
+        num += 1;
+      }
+      setIndex(index + 1);
+      setMessage('');
+      setShowMessage(true);
+    }
+  };
+
   return (
     <div className="box-container">
-      {boxList.map(({ text, color, prevItem }, ind) => (
-        <Box
-          key={ind}
-          text={text}
-          color={color}
-          prevItem={prevItem}
-          onClick={onFinalClick}
-        ></Box>
-      ))}
+      {showMessage ? (
+        <Message message={message} number={sequence[index]} onOkClick={() => setShowMessage(false)}/>
+      ) : (
+        numberSequence.map((number, ind) => (
+          <Box
+            key={ind}
+            text={number}
+            color={tileColor[ind]}
+            onClick={() => onClick(number)}
+          ></Box>
+        ))
+      )}
     </div>
   );
 };

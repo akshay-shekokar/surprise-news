@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ResultContainer.css";
+import babyLaugh from "../../public/audio/baby-laugh.mp3";
 
 const color = [
   "white",
@@ -42,6 +43,17 @@ const ResultContainer = () => {
 
   return (
     <div className="result-container" style={{ backgroundColor: resultColor }}>
+      <audio autoplay loop>
+        <source src={babyLaugh} type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      <iframe
+        title="baby-laugh"
+        src={babyLaugh}
+        allow="autoplay"
+        style={{ display: "none" }}
+        id="iframeAudio"
+      ></iframe>
       {showBaby && (
         <div
           className="baby-image-container"
@@ -51,7 +63,7 @@ const ResultContainer = () => {
       {showGreetings && (
         <div class="greetings-container">
           <div className="greetings-message">
-            Congrats tumhi Aaji Ajoba honar aahat...
+            अभिनंदन, तुम्ही आजी आणि आजोबा होणार आहात
           </div>
           <div className="congrats-container"></div>
         </div>
