@@ -5,9 +5,12 @@ import ResultContainer from "./components/ResultContainer/ResultContainer";
 
 function App() {
   const [isResultDisplayed, setIsResultDisplayed] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
 
   const showResult = () => {
+    setShowOverlay(true);
     setTimeout(() => {
+      setShowOverlay(false);
       setIsResultDisplayed(true);
     }, 2000);
   };
@@ -20,6 +23,9 @@ function App() {
         ) : (
           <BoxContainer onFinalClick={showResult} />
         )}
+        {showOverlay && <div className="overlay">
+          <div class="loader"></div>
+        </div>}
       </div>
     </>
   );

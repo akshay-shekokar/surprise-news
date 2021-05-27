@@ -14,14 +14,14 @@ const BoxContainer = ({ onFinalClick }) => {
   const numberSequence = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   const onClick = (text) => {
-    if(index !== 8) {
+    if(index === 8) {
       onFinalClick();
     } else {
       let num = index;
       if(text === sequence[num]) {
         num += 1;
       }
-      setIndex(index + 1);
+      setIndex(num);
       setMessage('');
       setShowMessage(true);
     }

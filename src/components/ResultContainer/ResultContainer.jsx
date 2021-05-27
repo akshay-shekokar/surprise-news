@@ -43,22 +43,24 @@ const ResultContainer = () => {
 
   return (
     <div className="result-container" style={{ backgroundColor: resultColor }}>
-      <audio autoplay loop>
-        <source src={babyLaugh} type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-      <iframe
-        title="baby-laugh"
-        src={babyLaugh}
-        allow="autoplay"
-        style={{ display: "none" }}
-        id="iframeAudio"
-      ></iframe>
       {showBaby && (
-        <div
-          className="baby-image-container"
-          style={{ width: babySize, height: babySize }}
-        ></div>
+        <>
+          <audio autoplay loop>
+            <source src={babyLaugh} type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+          <iframe
+            title="baby-laugh"
+            src={babyLaugh}
+            allow="autoplay"
+            style={{ display: "none" }}
+            id="iframeAudio"
+          ></iframe>
+          <div
+            className="baby-image-container"
+            style={{ width: babySize, height: babySize }}
+          ></div>
+        </>
       )}
       {showGreetings && (
         <div class="greetings-container">
