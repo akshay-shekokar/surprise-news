@@ -1,10 +1,10 @@
 import React from "react";
 import "./Message.css";
 
-const Message = ({ number, message, onOkClick }) => {
+const Message = ({ number, message, color, onOkClick }) => {
   return (
     <div className="message-container">
-      <div>{message}</div>
+      <div className="message-text" style={{color}}>{message}</div>
       <div>
         कृपया O.K. नंतर {number} दाबा
         <button className="primary" onClick={onOkClick}>
