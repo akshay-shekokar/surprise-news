@@ -6,7 +6,7 @@ const Message = ({ number, message, color, onOkClick }) => {
     <div className="message-container">
       <div className="message-text" style={{color}}>{message}</div>
       <div>
-        कृपया O.K. नंतर {number} दाबा
+        O.K. नंतर {number} दाबा
         <button className="primary" onClick={onOkClick}>
           OK
         </button>

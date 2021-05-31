@@ -37,7 +37,7 @@ const ResultContainer = () => {
       }
       setTimeout(() => {
         setShowGreetings(true);
-      }, 3700);
+      }, 10000);
     }
   }, [resultColor]);
 
