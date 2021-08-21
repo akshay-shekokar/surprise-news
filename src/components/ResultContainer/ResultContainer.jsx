@@ -65,7 +65,8 @@ const ResultContainer = () => {
       {showGreetings && (
         <div class="greetings-container">
           <div className="greetings-message">
-            अभिनंदन, तुम्ही आजी आणि आजोबा होणार आहात
+            {/* अभिनंदन, तुम्ही आजी आणि आजोबा होणार आहात */}
+            अभिनंदन, तू मामा बनणार आहेस
           </div>
           <div className="congrats-container"></div>
         </div>
