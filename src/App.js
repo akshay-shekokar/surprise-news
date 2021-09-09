@@ -1,8 +1,7 @@
 import BoxContainer from "./components/BoxContainer/BoxContainer";
 import "./App.css";
 import { useState } from "react";
-// import ResultContainer from "./components/ResultContainer/ResultContainer";
-import ResultVideo from "./components/ResultVideo/ResultVideo";
+import ResultContainer from "./components/ResultContainer/ResultContainer";
 
 function App() {
   const [isResultDisplayed, setIsResultDisplayed] = useState(false);
@@ -20,13 +19,12 @@ function App() {
     <>
       <div className="body-container">
         {isResultDisplayed ? (
-          // <ResultContainer />
-          <ResultVideo />
+          <ResultContainer />
         ) : (
           <BoxContainer onFinalClick={showResult} />
         )}
         {showOverlay && <div className="overlay">
-          <div class="loader"></div>
+          <div className="loader"></div>
         </div>}
       </div>
     </>

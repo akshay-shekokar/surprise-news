@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ResultContainer.css";
 import babyLaugh from "../../public/audio/baby-laugh.mp3";
+import ResultVideo from "../../components/ResultVideo/ResultVideo";
 
 const color = [
   "white",
@@ -45,32 +46,36 @@ const ResultContainer = () => {
     <div className="result-container" style={{ backgroundColor: resultColor }}>
       {showBaby && (
         <>
-          <audio autoplay loop>
+          <audio autoPlay loop>
             <source src={babyLaugh} type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
-          <iframe
+          {/* <iframe
             title="baby-laugh"
             src={babyLaugh}
             allow="autoplay"
             style={{ display: "none" }}
             id="iframeAudio"
-          ></iframe>
-          <div
-            className="baby-image-container"
-            style={{ width: babySize, height: babySize }}
-          ></div>
+          ></iframe> */}
+          {showGreetings ? (
+            <ResultVideo />
+          ) : (
+            <div
+              className="baby-image-container"
+              style={{ width: babySize, height: babySize }}
+            ></div>
+          )}
         </>
       )}
-      {showGreetings && (
-        <div class="greetings-container">
+      {/* showGreetings && (
+        <div className="greetings-container">
           <div className="greetings-message">
-            {/* अभिनंदन, तुम्ही आजी आणि आजोबा होणार आहात */}
-            अभिनंदन, तू मामा बनणार आहेस
+            अभिनंदन, तुम्ही आजी आणि आजोबा होणार आहात
+            {/* अभिनंदन, तू मामा बनणार आहेस *}
           </div>
           <div className="congrats-container"></div>
         </div>
-      )}
+      )*/}
     </div>
   );
 };
